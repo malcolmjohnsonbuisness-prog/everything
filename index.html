@@ -1,21 +1,29 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<title>Trading Strategy Research — Original Backtest Data on 18 Assets</title>
-<meta name="description" content="Original backtest research: 5 trading strategies across 18 assets over 20 years, 576 parameter sets. Mean in-sample/out-of-sample correlation was -0.040.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://malcolmjohnsonbuisness-prog.github.io/everything/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Strategy Lab Research","about":["backtesting","trading strategies","overfitting","risk management"]}</script>
-<style>body{margin:0;background:#0e1116;color:#e6edf3;font:17px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:820px;margin:0 auto;padding:64px 28px}h1{font-size:34px;margin:0 0 10px}
-.sub{color:#8b949e;margin-bottom:38px}
-a.card{display:block;background:#161b22;border:1px solid #262d38;border-radius:12px;padding:22px 24px;margin:16px 0;text-decoration:none;color:#e6edf3}
-a.card:hover{border-color:#4c8bf5}a.card h2{margin:0 0 6px;font-size:20px;color:#4c8bf5}
-a.card p{margin:0;color:#8b949e;font-size:15px}
-footer{color:#5a626d;font-size:13px;margin-top:48px}</style></head><body><div class="wrap">
-<h1>Trading Strategy Research</h1>
-<div class="sub">Original backtest data. 18 assets. 5 strategies. 20 years. 576 parameter sets. No investment advice.</div>
-<a class="card" href="demand-asset-1-overfitting-study.html"><h2>Optimisation predicted nothing: 18 assets, 576 parameter sets</h2>
-<p>The mean in-sample/out-of-sample correlation was &minus;0.040. Why tuned strategies fail.</p></a>
-<a class="card" href="demand-asset-2-strategy-survival.html"><h2>Which trading strategy actually survives?</h2>
-<p>Buy &amp; Hold, SMA crossover, RSI(2), momentum and volatility targeting ranked across every asset.</p></a>
-<footer>Research tooling, not investment advice. Past performance does not predict future results.</footer>
-</div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Trading Strategy Research - original backtest data on 18 assets</title><meta name="description" content="Original backtest research: 18 assets, 5 trading strategies, 576 parameter sets, 20 years. Mean in-sample/out-of-sample correlation -0.040."><link rel="canonical" href="https://malcolmjohnsonbuisness-prog.github.io/everything/"><meta name="robots" content="index,follow"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Strategy Lab Research","about":["backtesting","trading strategies","overfitting","risk management"]}</script><style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#262d38;--txt:#e6edf3;--dim:#8b949e;--good:#2ea043;--bad:#da3633;--accent:#4c8bf5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:17px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:48px 26px}
+h1{font-size:34px;line-height:1.2;margin:0 0 12px}h2{font-size:23px;margin:42px 0 12px;color:var(--accent)}
+h3{font-size:17px;margin:24px 0 8px}
+.meta{color:var(--dim);font-size:14px;margin-bottom:28px}
+.bc{color:var(--dim);font-size:13px;margin-bottom:14px}.bc a{color:var(--dim)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin:24px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent);line-height:1.15}
+.stat .l{color:var(--dim);font-size:12.5px;margin-top:5px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:right}
+th{color:var(--dim);font-size:11px;text-transform:uppercase}
+td:first-child,th:first-child{text-align:left}
+.neg{color:var(--bad)}.pos{color:var(--good)}
+.callout{background:var(--panel);border-left:4px solid var(--accent);border-radius:8px;padding:16px 20px;margin:20px 0}
+.warn{border-left-color:var(--bad)}.good{border-left-color:var(--good)}
+a{color:var(--accent)}.cta{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;margin:34px 0;text-align:center}
+.cta a.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;margin:5px 3px 0}
+.cta a.alt{background:#21262d;border:1px solid var(--line)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:16px 0}
+.links a{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:11px 13px;text-decoration:none;font-size:14px}
+footer{color:#5a626d;font-size:12.5px;margin-top:44px;border-top:1px solid var(--line);padding-top:16px}
+</style></head><body><h1>Trading Strategy Research</h1><div class="meta">Original backtest data &middot; 18 assets &middot; 5 strategies &middot; 576 parameter sets &middot; 20 years</div><p>Independent backtest research on real market data. Every figure here comes from our own engine, with trading costs applied and every signal shifted a day to remove lookahead. No investment advice.</p><div class="stats"><div class="stat"><div class="n">-0.040</div><div class="l">Mean in-sample vs out-of-sample correlation</div></div><div class="stat"><div class="n">576</div><div class="l">Parameter sets fitted then graded on unseen data</div></div><div class="stat"><div class="n">18</div><div class="l">Assets covered</div></div><div class="stat"><div class="n">131</div><div class="l">Research pages</div></div></div><div class="links"><a href="assets-index.html">All 18 assets</a><a href="strategies-index.html">All 5 strategies</a><a href="guides-index.html">Guides (12)</a><a href="data.html">Full dataset</a><a href="methodology.html">Methodology</a><a href="demand-asset-1-overfitting-study.html">Flagship study: optimisation predicted nothing</a><a href="demand-asset-2-strategy-survival.html">Which strategy actually survives?</a></div><h2>Start here</h2><p>If you read one thing: across 576 parameter sets the correlation between in-sample and out-of-sample performance was <b>-0.040</b> &mdash; meaning tuning a strategy told you essentially nothing about how it would behave later.</p><div class="cta"><h3 style="margin-top:0">Run these checks on your own strategy</h3>
+<p style="color:var(--dim);margin:6px 0 0">Free guide with the full methodology, or the engine itself &mdash; any ticker, any date range, your own rules.</p>
+<a class="btn" href="https://malcolmpreneur.gumroad.com/l/backtest-reality-check">Get the free guide</a>
+<a class="btn alt" href="https://malcolmpreneur.gumroad.com/l/strategy-lab">Strategy Lab</a></div></body></html>
