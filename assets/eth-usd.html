@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>ETH-USD backtest: 5 trading strategies tested over 3,243 days</title>
+<meta name="description" content="Ethereum (ETH-USD) backtest results: buy and hold, SMA crossover, RSI(2), momentum and volatility targeting compared over 3,243 trading days with real costs and an out-of-sample check.">
+<link rel="canonical" href="https://malcolmjohnsonbuisness-prog.github.io/everything/assets/eth-usd.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ETH-USD backtest: 5 trading strategies tested over 3,243 days">
+<meta property="og:description" content="Ethereum (ETH-USD) backtest results: buy and hold, SMA crossover, RSI(2), momentum and volatility targeting compared over 3,243 trading days with real costs and an out-of-sample check.">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Ethereum (ETH-USD) strategy backtest dataset", "description": "Backtest of five trading strategies on Ethereum (ETH-USD).", "temporalCoverage": "2017-11-09/2026-09-25"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How has ETH-USD performed historically?","acceptedAnswer":{"@type":"Answer","text":"Ethereum (ETH-USD) returned a compound annual growth rate of 18.0% from 2017-11-09 to 2026-09-25, with a maximum drawdown of -94.0%."}},{"@type":"Question","name":"Does optimisation work on ETH-USD?","acceptedAnswer":{"@type":"Answer","text":"Across a moving-average parameter sweep for ETH-USD, the in-sample versus out-of-sample correlation was -0.150. Tuning did not predict future performance."}},{"@type":"Question","name":"Which strategy worked best on ETH-USD?","acceptedAnswer":{"@type":"Answer","text":"Best risk-adjusted result by Sharpe: Vol-Target at 0.86."}}]}</script>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#262d38;--txt:#e6edf3;--dim:#8b949e;--good:#2ea043;--bad:#da3633;--accent:#4c8bf5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:17px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:48px 26px}
+h1{font-size:34px;line-height:1.2;margin:0 0 12px}h2{font-size:23px;margin:42px 0 12px;color:var(--accent)}
+h3{font-size:17px;margin:24px 0 8px}
+.meta{color:var(--dim);font-size:14px;margin-bottom:28px}
+.bc{color:var(--dim);font-size:13px;margin-bottom:14px}.bc a{color:var(--dim)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin:24px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px}
+.stat .n{font-size:26px;font-weight:700;color:var(--accent);line-height:1.15}
+.stat .l{color:var(--dim);font-size:12.5px;margin-top:5px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:right}
+th{color:var(--dim);font-size:11px;text-transform:uppercase}
+td:first-child,th:first-child{text-align:left}
+.neg{color:var(--bad)}.pos{color:var(--good)}
+.callout{background:var(--panel);border-left:4px solid var(--accent);border-radius:8px;padding:16px 20px;margin:20px 0}
+.warn{border-left-color:var(--bad)}.good{border-left-color:var(--good)}
+a{color:var(--accent)}.cta{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;margin:34px 0;text-align:center}
+.cta a.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;margin:5px 3px 0}
+.cta a.alt{background:#21262d;border:1px solid var(--line)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:16px 0}
+.links a{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:11px 13px;text-decoration:none;font-size:14px}
+footer{color:#5a626d;font-size:12.5px;margin-top:44px;border-top:1px solid var(--line);padding-top:16px}
+</style></head><body><div class="wrap"><div class="bc"><a href="../index.html">Research</a> / <a href="../assets-index.html">Assets</a> / ETH-USD</div>
+<h1>Ethereum (ETH-USD) backtest: five strategies across 3,243 trading days</h1>
+<div class="meta">Period 2017-11-09 &rarr; 2026-09-25 &middot; 5bps costs &middot; no lookahead &middot; ★ = best Sharpe</div>
+<p>Ethereum (ETH-USD) is one of 18 assets in our panel. Every figure below came from the same engine,
+on real adjusted prices, with costs applied and every signal shifted one day so nothing trades on
+information it would not have had.</p>
+<div class="stats">
+<div class="stat"><div class="n">18.0%</div><div class="l">Buy &amp; hold CAGR</div></div>
+<div class="stat"><div class="n neg">-94.0%</div><div class="l">Buy &amp; hold max drawdown</div></div>
+<div class="stat"><div class="n">-0.150</div><div class="l">In-sample vs out-of-sample correlation</div></div>
+<div class="stat"><div class="n">-16.9%</div><div class="l">Vol-targeting max drawdown</div></div>
+</div>
+<h2>Results: ETH-USD by strategy</h2>
+<table><thead><tr><th>Strategy</th><th>CAGR</th><th>Sharpe</th><th>Sortino</th><th>Max DD</th><th>Calmar</th><th>$1k &rarr;</th></tr></thead><tbody><tr><td>Buy & Hold</td><td>18.0%</td><td>0.59</td><td>0.82</td><td class='neg'>-94.0%</td><td>0.19</td><td>$8,407</td></tr><tr><td>SMA 50/200</td><td>17.2%</td><td>0.58</td><td>0.53</td><td class='neg'>-78.0%</td><td>0.22</td><td>$7,738</td></tr><tr><td>RSI(2)</td><td>24.2%</td><td>0.66</td><td>0.84</td><td class='neg'>-79.4%</td><td>0.30</td><td>$16,259</td></tr><tr><td>252d Momentum</td><td>14.5%</td><td>0.52</td><td>0.56</td><td class='neg'>-66.6%</td><td>0.22</td><td>$5,684</td></tr><tr><td>Vol-Target ★</td><td>9.4%</td><td>0.86</td><td>0.87</td><td class='neg'>-16.9%</td><td>0.56</td><td>$3,193</td></tr></tbody></table>
+<h2>What the numbers say</h2>
+<div class="callout warn"><b>Overfitting check.</b>
+A moving-average parameter sweep on ETH-USD produced an in-sample versus out-of-sample correlation of
+<b>-0.150</b>. 32 parameter combinations were fitted on the first 70% of history and
+graded on the unseen 30%. Best in-sample CAGR was 36.3%; the same
+selection managed 15.0% on data it had never seen.</div>
+<div class="callout good"><b>Risk note.</b> Volatility targeting cut maximum drawdown to
+-16.9% versus -94.0% for buy and hold &mdash; at the cost of
+a lower return (9.4% versus 18.0%). Drawdown is what forces
+people out of a position; returns they never collect are not returns.</div>
+<h2>Strategy deep dives for ETH-USD</h2>
+<div class="links"><a href="buy-and-hold-eth-usd.html">Buy and Hold on ETH-USD</a><a href="sma-crossover-eth-usd.html">SMA 50/200 Moving Average Crossover on ETH-USD</a><a href="rsi-mean-reversion-eth-usd.html">RSI(2) Mean Reversion on ETH-USD</a><a href="momentum-eth-usd.html">12-Month Time-Series Momentum on ETH-USD</a><a href="volatility-targeting-eth-usd.html">Volatility Targeting on ETH-USD</a></div>
+<h2>How this was measured</h2>
+<p>Daily adjusted prices from 2017-11-09 to 2026-09-25 (3,243 trading days).
+Costs of 5bps per position change. Signals shifted one day to remove lookahead. The parameter sweep
+fits on the first 70% of history and grades on the final 30%. Full method on the
+<a href="../methodology.html">methodology page</a>.</p>
+<div class="cta"><h3 style="margin-top:0">Run these checks on your own strategy</h3>
+<p style="color:var(--dim);margin:6px 0 0">Free guide with the full methodology, or the engine itself &mdash; any ticker, any date range, your own rules.</p>
+<a class="btn" href="https://malcolmpreneur.gumroad.com/l/backtest-reality-check">Get the free guide</a>
+<a class="btn alt" href="https://malcolmpreneur.gumroad.com/l/strategy-lab">Strategy Lab</a></div>
+<footer>Original backtest research &middot; public daily prices (Yahoo Finance, auto-adjusted) &middot;
+5bps costs per position change &middot; signals shifted one day (no lookahead).
+Research tooling, not investment advice. Past performance does not predict future results.</footer>
+</div></body></html>
