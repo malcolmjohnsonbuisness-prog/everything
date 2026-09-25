@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>We Ran 5 Trading Strategies Across 18 Assets for 20 Years — Optimisation Predicted Nothing</title>
+<meta name="description" content="Original research: 18 assets, 576 moving-average parameter sets, 20 years of real prices. The mean in-sample/out-of-sample correlation was -0.040. Tuning a strategy told us nothing about its future performance.">
+<link rel="canonical" href="https://malcolmjohnsonbuisness-prog.github.io/everything/demand-asset-1-overfitting-study.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Optimisation Predicted Nothing: 18 Assets, 576 Parameter Sets, 20 Years">
+<meta property="og:description" content="Mean in-sample/out-of-sample correlation across 18 assets: -0.040. Original backtest research on real market data.">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"Trading Strategy Out-of-Sample Study",
+"description":"Backtests of 5 trading strategies across 18 financial assets from 2005 to 2026 with 576 moving-average parameter sets, measuring in-sample versus out-of-sample performance.",
+"creator":{"@type":"Organization","name":"Strategy Lab"},
+"license":"https://creativecommons.org/licenses/by/4.0/",
+"variableMeasured":["CAGR","Sharpe ratio","Sortino ratio","Maximum drawdown","Calmar ratio","In-sample/out-of-sample correlation"],
+"temporalCoverage":"2005-01-01/2026-09-25"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does optimising a trading strategy improve out-of-sample performance?",
+"acceptedAnswer":{"@type":"Answer","text":"No. Across 18 assets and 576 moving-average parameter sets, the mean correlation between in-sample and out-of-sample performance was -0.040. Parameter tuning did not predict future results."}},
+{"@type":"Question","name":"How many parameter sets were tested?",
+"acceptedAnswer":{"@type":"Answer","text":"576 moving-average parameter combinations were fitted on the first 70% of history and graded on the unseen final 30%."}},
+{"@type":"Question","name":"Which strategy had the best risk-adjusted return?",
+"acceptedAnswer":{"@type":"Answer","text":"Buy and Hold and RSI(2) mean reversion had the highest mean Sharpe ratios (0.64 and 0.64). Volatility targeting had a lower Sharpe but produced far shallower drawdowns, cutting average maximum drawdown by 35.1 percentage points."}}]}
+</script>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#262d38;--txt:#e6edf3;--dim:#8b949e;--good:#2ea043;--bad:#da3633;--accent:#4c8bf5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:17px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:52px 28px}
+h1{font-size:37px;line-height:1.2;margin:0 0 14px}
+h2{font-size:24px;margin:46px 0 12px;color:var(--accent)}
+h3{font-size:18px;margin:28px 0 8px}
+.meta{color:var(--dim);font-size:14.5px;margin-bottom:34px}
+.lead{font-size:19px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:28px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+.stat .n{font-size:32px;font-weight:700;color:var(--accent);line-height:1.1}
+.stat .l{color:var(--dim);font-size:13px;margin-top:6px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right}
+th{color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px}
+td:first-child,th:first-child{text-align:left}
+.neg{color:var(--bad)}.pos{color:var(--good)}
+.callout{background:var(--panel);border-left:4px solid var(--accent);border-radius:8px;padding:18px 22px;margin:22px 0}
+.warn{border-left-color:var(--bad)}.good{border-left-color:var(--good)}
+.cta{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;margin:38px 0;text-align:center}
+.cta a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 26px;border-radius:8px;font-weight:600;margin:6px 4px 0}
+.cta a.alt{background:#21262d;border:1px solid var(--line)}
+code{background:#1f2530;padding:2px 6px;border-radius:4px;font-size:14px}
+footer{color:#5a626d;font-size:13px;margin-top:50px;border-top:1px solid var(--line);padding-top:18px}
+</style></head><body><div class="wrap">
+
+<h1>We ran 5 trading strategies across 18 assets for 20 years. Optimisation predicted nothing.</h1>
+<div class="meta">Original research &middot; 18 assets &middot; 576 parameter sets &middot; 2005&ndash;2026 &middot; 5bps trading costs &middot; signals shifted 1 day (no lookahead)</div>
+
+<p class="lead">Every trading strategy that gets sold comes with a backtest. Almost none come with the number
+that determines whether that backtest meant anything. We measured it &mdash; across 18 assets and
+576 parameter sets &mdash; and the result should change how you read every performance chart you see.</p>
+
+<div class="stats">
+<div class="stat"><div class="n">-0.040</div><div class="l">Mean in-sample vs out-of-sample correlation</div></div>
+<div class="stat"><div class="n">576</div><div class="l">Parameter sets fitted then graded on unseen data</div></div>
+<div class="stat"><div class="n">18</div><div class="l">Assets: equities, bonds, gold, real estate, mega-cap, crypto</div></div>
+<div class="stat"><div class="n">11/7</div><div class="l">Assets where the correlation was zero-or-negative vs positive</div></div>
+</div>
+
+<h2>What we did</h2>
+<p>For each of 18 assets we tested five rule-based strategies &mdash; Buy &amp; Hold, a 50/200
+moving-average crossover, RSI(2) mean reversion, 12-month time-series momentum, and volatility targeting.
+Then, separately, we fitted 576 moving-average parameter combinations on the first 70% of each
+asset's history and graded every one on the final 30% it had never seen. Costs of 5bps per position change
+are applied throughout, and every signal is shifted one day so nothing trades on information it would not
+have had.</p>
+
+<h2>The finding</h2>
+<div class="callout warn"><b>Across all 18 assets, the mean correlation between in-sample and
+out-of-sample performance was -0.040</b> (median -0.014, range
+-0.362 to +0.311). In plain terms: a parameter set that looked excellent while
+you tuned it carried essentially no information about how it would behave on data it had never seen.</div>
+
+<p>This is the mechanism behind almost every &ldquo;proven system&rdquo; that fails in live trading.
+Optimisation gives a strategy more freedom to memorise the past. The parameter set that fits history best
+is often the one most precisely fitted to noise.</p>
+
+<h2>Asset by asset</h2>
+<table>
+<thead><tr><th>Asset</th><th>IS/OOS corr</th><th>Best in-sample CAGR</th><th>Best out-of-sample CAGR</th><th>Best strategy by Sharpe</th><th>Sharpe</th></tr></thead>
+<tbody><tr><td>Long Treasuries (TLT)</td><td class='neg'>-0.362</td><td>6.7%</td><td>-1.8%</td><td>Buy & Hold</td><td>0.26</td></tr><tr><td>Meta (META)</td><td class='neg'>-0.318</td><td>22.7%</td><td>45.6%</td><td>RSI(2)</td><td>0.81</td></tr><tr><td>Intermediate Treasuries (IEF)</td><td class='neg'>-0.268</td><td>4.2%</td><td>0.2%</td><td>252d Momentum</td><td>0.52</td></tr><tr><td>Ethereum (ETH-USD)</td><td class='neg'>-0.150</td><td>36.3%</td><td>15.0%</td><td>Vol-Target</td><td>0.86</td></tr><tr><td>Microsoft (MSFT)</td><td class='neg'>-0.132</td><td>11.5%</td><td>13.7%</td><td>Buy & Hold</td><td>0.70</td></tr><tr><td>Nasdaq 100 (QQQ)</td><td class='neg'>-0.124</td><td>9.0%</td><td>16.2%</td><td>SMA 50/200</td><td>0.81</td></tr><tr><td>Alphabet (GOOGL)</td><td class='neg'>-0.110</td><td>11.0%</td><td>26.6%</td><td>Buy & Hold</td><td>0.80</td></tr><tr><td>Amazon (AMZN)</td><td class='neg'>-0.025</td><td>21.1%</td><td>9.8%</td><td>RSI(2)</td><td>0.79</td></tr><tr><td>Tesla (TSLA)</td><td class='neg'>-0.016</td><td>47.1%</td><td>11.4%</td><td>RSI(2)</td><td>0.88</td></tr><tr><td>Bitcoin (BTC-USD)</td><td class='neg'>-0.012</td><td>57.8%</td><td>20.8%</td><td>Vol-Target</td><td>1.14</td></tr><tr><td>Emerging Markets (EEM)</td><td class='neg'>-0.006</td><td>7.7%</td><td>11.1%</td><td>Buy & Hold</td><td>0.40</td></tr><tr><td>S&P 500 (SPY)</td><td class='neg'>+0.011</td><td>7.2%</td><td>13.0%</td><td>Vol-Target</td><td>0.71</td></tr><tr><td>Nvidia (NVDA)</td><td class='neg'>+0.031</td><td>27.2%</td><td>59.9%</td><td>Vol-Target</td><td>1.08</td></tr><tr><td>US Small Cap (IWM)</td><td class='neg'>+0.036</td><td>4.9%</td><td>9.1%</td><td>Buy & Hold</td><td>0.46</td></tr><tr><td>US Real Estate (VNQ)</td><td class='neg'>+0.049</td><td>6.6%</td><td>5.7%</td><td>Buy & Hold</td><td>0.37</td></tr><tr><td>Gold (GLD)</td><td class='neg'>+0.059</td><td>8.0%</td><td>13.1%</td><td>Vol-Target</td><td>0.68</td></tr><tr><td>Developed Intl (EFA)</td><td class='pos'>+0.305</td><td>6.0%</td><td>11.7%</td><td>Buy & Hold</td><td>0.39</td></tr><tr><td>Apple (AAPL)</td><td class='pos'>+0.311</td><td>27.6%</td><td>12.4%</td><td>Vol-Target</td><td>1.05</td></tr></tbody></table>
+
+<h2>What actually helped</h2>
+<div class="callout good"><b>Volatility targeting cut drawdown by an average of
+35.1 percentage points</b> across the 18 assets where we measured it &mdash;
+and it never delivered the highest return. That is the real trade: you give up headline return to buy
+survivability. Volatility targeting had the <em>lowest</em> mean return of all five strategies
+(7.6% versus 17.8% for buy and hold) and the lowest
+mean Sharpe. What it bought was the ability to stay in the position at all.</div>
+
+<h2>Common questions</h2>
+<h3>Does optimising a strategy improve out-of-sample results?</h3>
+<p>Not in this data. Mean in-sample/out-of-sample correlation: -0.040. Tuning selected noise.</p>
+<h3>How many parameter sets?</h3>
+<p>576, each fitted on 70% of history and graded on the unseen 30%.</p>
+<h3>What should I look at instead of returns?</h3>
+<p>Sharpe and Calmar. Mean Sharpe across assets: Buy &amp; Hold 0.64,
+volatility targeting 0.62, momentum 0.54.</p>
+<h3>Are these numbers reproducible?</h3>
+<p>Yes. They come from the same engine described below, on public daily prices, with the parameters and
+cost assumptions stated above.</p>
+
+<div class="cta">
+<h2 style="margin:0 0 6px">Run these five checks on your own strategy</h2>
+<p style="color:#8b949e;margin:0 0 4px">Free guide with the full methodology, the Monte Carlo tables and
+the one rule that survived every asset class.</p>
+<a href="https://malcolmpreneur.gumroad.com/l/backtest-reality-check">Get the free guide</a>
+<a class="alt" href="https://malcolmpreneur.gumroad.com/l/strategy-lab">Run it yourself &mdash; Strategy Lab</a>
+</div>
+
+<footer>Sourced from public daily prices (Yahoo Finance, auto-adjusted). 18 assets,
+576 parameter sets, 5bps trading costs per position change, all signals shifted one day.
+Research tooling, not investment advice. Past performance does not predict future results.</footer>
+</div></body></html>
